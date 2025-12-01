@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new Database();
     $con = $db->getConnection();
 
-    // sanitize and gather inputs
     $seller_id = isset($_SESSION['seller_id']) ? (int) $_SESSION['seller_id'] : null;
     $product_name = isset($_POST['product_name']) ? trim($_POST['product_name']) : '';
     $description = isset($_POST['description']) ? trim($_POST['description']) : null;
@@ -21,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $imagePath = null;
     $uploadDir = realpath(__DIR__ . '/../assets') . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR;
     if ($uploadDir === false) {
-        // fallback to relative path
         $uploadDir = __DIR__ . '/../assets/uploads/';
     }
 
@@ -59,8 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: ../public/products.php?status=error&msg=' . urlencode('Failed to move uploaded file'));
                 exit;
             }
-
-            // store relative web path in DB (relative to project root)
             $imagePath = 'assets/uploads/' . $newFilename;
         } else {
             header('Location: ../public/products.php?status=error&msg=' . urlencode('Upload error code: ' . $fileError));
@@ -92,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('Execute failed: ' . $stmt->error);
         }
 
-        // success — show JS alert then redirect so seller can see confirmation
         echo '<!doctype html><html><head><meta charset="utf-8"><title>Product Added</title></head><body>';
         echo '<script>alert("Product added successfully."); window.location = "../public/products.php";</script>';
         echo '</body></html>';
@@ -122,6 +117,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-   
+// Handle fetching products for the logged-in seller
+header('Content-Type: application/json');
+$seller_id = $_SESSION['seller_id'];
+
+try {
+    $db = new Database();
+    $con = $db->getConnection();
+
+    $query = "SELECT 
+                p.product_id,
+                p.product_name,
+                p.description,
+                p.price,
+                p.stock,
+                p.category,
+                p.image,
+                s.name AS seller_name,
+                s.shop_name,
+                s.email
+              FROM products p
+              INNER JOIN sellers s 
+                ON p.seller_id = s.seller_id
+              WHERE p.seller_id = ?";
+
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("i", $seller_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $products = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+
+    echo json_encode([
+        "status" => "success",
+        "data" => $products
+    ]);
+
+} catch (Exception $e) {
+    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+}
+
+exit;
 
 ?>

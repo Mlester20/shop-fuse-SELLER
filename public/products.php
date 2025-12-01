@@ -1,4 +1,5 @@
 <?php
+require '../includes/config.php';
 session_start();
    
     if(!isset($_SESSION['seller_id'])){
@@ -6,7 +7,6 @@ session_start();
         throw new Exception("Unauthorized Access");
         header('Location: ../index.php');
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +31,5 @@ session_start();
     <!-- js scripts -->
     <script src="../js/auth.js" defer></script>
     <script src="../js/script.js"></script>
-    <script src="../js/product.js"></script>
 </body>
 </html>
