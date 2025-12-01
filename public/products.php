@@ -22,12 +22,15 @@ session_start();
 
     <?php require '../components/navBar.php'; ?>
 
-    <h1 class="text-3xl font-bold text-center mt-10 text-white">Products Page</h1>
+    <h1 class="text-3xl font-bold text-center mt-10 text-white">Add Products</h1>
+
+    <?php require '../components/productUI.php'; ?>
+    
 
 
     <!-- js scripts -->
     <script src="../js/auth.js" defer></script>
     <script src="../js/script.js"></script>
-
+    <script src="../js/product.js"></script>
 </body>
 </html>
