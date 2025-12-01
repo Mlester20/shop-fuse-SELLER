@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Smooth scrolling */
+    html {
+        @apply scroll-smooth;
+    }
+
+    /* Enhanced body styling */
+    body {
+        @apply antialiased;
+        @apply bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-200;
+    }
+
+    /* Typography enhancements */
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold;
+    }
+
+    /* Focus visible for better accessibility */
+    *:focus-visible {
+        @apply outline-2 outline-offset-2 outline-purple-500;
+    }
+}
+
+@layer components {
+    /* Input field styling */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        @apply transition-all duration-200;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+        @apply shadow-lg;
+    }
+
+    /* Floating label styles */
+    .floating-label {
+        @apply absolute left-4 top-3.5 text-gray-600 dark:text-gray-400 text-sm font-medium 
+               transition-all duration-200 pointer-events-none;
+    }
+
+    /* Form validation feedback */
+    input:invalid:not(:placeholder-shown) {
+        @apply border-red-500 focus:ring-red-500;
+    }
+
+    input:valid:not(:placeholder-shown) {
+        @apply border-green-500 focus:ring-green-500;
+    }
+
+    /* Password strength indicators */
+    .strength-weak {
+        @apply bg-red-500;
+    }
+
+    .strength-fair {
+        @apply bg-yellow-500;
+    }
+
+    .strength-good {
+        @apply bg-blue-500;
+    }
+
+    .strength-strong {
+        @apply bg-green-500;
+    }
+
+    /* Gradient buttons */
+    .btn-gradient {
+        @apply bg-gradient-to-r from-purple-600 to-pink-600 
+               hover:from-purple-700 hover:to-pink-700
+               text-white font-bold
+               transition-all duration-200
+               transform hover:scale-105
+               focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
+               shadow-lg hover:shadow-xl
+               active:scale-95;
+    }
+
+    /* Glass morphism effect */
+    .glass {
+        @apply backdrop-blur-xl bg-white/80 dark:bg-gray-800/80
+               border border-white/20 dark:border-white/10
+               shadow-2xl;
+    }
+
+    .glass:hover {
+        @apply shadow-3xl border-white/30 dark:border-white/20;
+    }
+
+    /* Card animations */
+    .card-enter {
+        animation: slideInUp 0.3s ease-out;
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Button animations */
+    .btn-pulse:hover {
+        animation: buttonPulse 0.6s ease-out;
+    }
+
+    @keyframes buttonPulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(168, 85, 247, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+        }
+    }
+
+    /* Input focus shadow */
+    input:focus {
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1),
+                    inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    /* Smooth transitions for dark mode */
+    body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Accessibility: Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+}
+
+@layer utilities {
+    /* Custom text truncation */
+    .truncate-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Custom spacing utilities */
+    .safe-area-inset-bottom {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    /* Glassmorphism utility */
+    .glassmorphism {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Dark mode glassmorphism */
+    .dark .glassmorphism {
+        background: rgba(31, 41, 55, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Smooth gradient background */
+    .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    /* Responsive text sizes */
+    .text-responsive {
+        @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+    }
+}
