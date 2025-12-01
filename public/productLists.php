@@ -8,7 +8,6 @@ session_start();
     }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,6 @@ session_start();
     
 
     <?php require '../components/navBar.php'; ?>
-
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <h1 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Product Lists Page</h1>
@@ -37,33 +35,20 @@ session_start();
                         <th class="py-3 px-6 text-left text-sm font-medium text-gray-700 dark:text-gray-300 uppercase">Category</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Shirt</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Cotton T-shirt, size M</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">500</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">20</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Clothing</td>
-                    </tr>
-                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Hat</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Stylish summer hat</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">150</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">50</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Accessories</td>
-                    </tr>
-                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Shoes</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Running sneakers size 42</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">1200</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">15</td>
-                        <td class="py-4 px-6 text-gray-900 dark:text-gray-200">Footwear</td>
+                <tbody class="divide-y divide-gray-200 dark:divide-gray-700" id="productTableBody">
+                    <tr>
+                        <td colspan="5" class="py-4 text-center text-gray-500 dark:text-gray-400">
+                            Loading products...
+                        </td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </div>
 
 
+    <!-- scripts -->
+    <script src="../js/product.js"></script>
 </body>
 </html>

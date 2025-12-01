@@ -1,6 +1,7 @@
 <?php
 session_start();
    
+
     if(!isset($_SESSION['seller_id'])){
         http_response_code(401);
         throw new Exception("Unauthorized Access");
@@ -22,7 +23,6 @@ session_start();
     <!-- Navbar UI -->
     <?php require '../components/navBar.php'; ?>
     
-
 
     <!-- js scripts -->
     <script src="../js/auth.js" defer></script>
