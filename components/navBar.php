@@ -35,27 +35,27 @@
                             <a href="productLists.php" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200">
                                 My Products
                             </a>
-                            <a href="#" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200 rounded-b-lg">
-                                Feature 3
-                            </a>
                         </div>
                     </div>
                     <div class="relative group">
                         <button class="flex items-center space-x-1 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                            <span>Pricing</span>
+                            <span>Order Products</span>
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                             </svg>
                         </button>
                         <div class="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                             <a href="#" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200 rounded-t-lg">
-                                Basic Plan
+                                Process Orders
+                            </a>
+                            <a href="orders.php" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200 rounded-t-lg">
+                                Orders
                             </a>
                             <a href="#" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200">
-                                Pro Plan
+                                Order History
                             </a>
                             <a href="#" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-gray-700 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-all duration-200 rounded-b-lg">
-                                Enterprise
+                                Returns
                             </a>
                         </div>
                     </div>

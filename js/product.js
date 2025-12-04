@@ -13,11 +13,11 @@ fetch("../controllers/productController.php")
 
         const row = `
           <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-            <td class="py-4 px-6 text-gray-900 dark:text-gray-200">${product.product_name}</td>
-            <td class="py-4 px-6 text-gray-900 dark:text-gray-200">${product.description}</td>
-            <td class="py-4 px-6 text-gray-900 dark:text-gray-200">${product.price}</td>
-            <td class="py-4 px-6 text-gray-900 dark:text-gray-200">${product.stock}</td>
-            <td class="py-4 px-6 text-gray-900 dark:text-gray-200">${product.category}</td>
+            <td class="py-4 px-6 text-white dark:text-gray-200">${product.product_name}</td>
+            <td class="py-4 px-6 text-white dark:text-gray-200">${product.description}</td>
+            <td class="py-4 px-6 text-white dark:text-gray-200">${product.price}</td>
+            <td class="py-4 px-6 text-white dark:text-gray-200">${product.stock}</td>
+            <td class="py-4 px-6 text-white dark:text-gray-200">${product.category}</td>
           </tr>
         `;
 
